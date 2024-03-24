@@ -1,6 +1,0 @@
-
-const FormInput = () => {
-
-
-    return <></>
-}
