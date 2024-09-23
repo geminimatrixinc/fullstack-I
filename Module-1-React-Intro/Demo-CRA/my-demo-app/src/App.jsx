@@ -1,27 +1,54 @@
 // App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
-import UserProfile from './components/Module-6-React-Router/2-Route-Params/UserProfile';
+
+const Parent = () => {
+    const [message, setMessage] = useState('');
+
+    const handleMessageChange = (newMessage) => {
+        setMessage(newMessage);
+    };
+
+    return (
+        <div>
+            <h1>Parent Component</h1>
+
+            <Child onMessageChange={handleMessageChange} />
+
+            <p>Message from Child: {message}</p>
+        </div>
+    );
+};
+
+const Child = (props) => {
+    const [inputValue, setInputValue] = useState('');
+
+    const handleInputChange = (e) => {
+        /// CHILD
+        debugger
+        setInputValue(e.target.value);
+        // parent call back
+        props.onMessageChange(e.target.value); // Lifting state up
+    };
+
+    return (
+        <div>
+            <h2>Child Component</h2>
+            <input
+                type="text"
+                value={inputValue}
+                onChange={handleInputChange}
+                placeholder="Type a message"
+            />
+        </div>
+    );
+};
 
 const App = () => {
     return (
-        <Router>
-            <nav>
-                <ul>
-                    <li><Link to="/user/1">User 1</Link></li>
-                    <li><Link to="/user/2">User 2</Link></li>
-                    <li><a href="/user/500">User Link</a></li>
-                </ul>
-            </nav>
-
-            <Routes>
-                <Route path="/user/:id" element={<UserProfile />} />
-                <Route path="/user/:id/course/:courseId" element={<h1>User Course</h1>} />
-                <Route path="*" element={ <h1>Not Found</h1> } />
-            </Routes>
-
-        </Router>
+        <>
+            <Parent />
+        </>
     );
 };
 
