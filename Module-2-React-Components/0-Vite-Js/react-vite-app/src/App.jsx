@@ -3,15 +3,16 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import NameList from './components/2-Component-JSX/8-Rendering-Lists'
+import TimerClass from './components/5-Component-LifeCycle/TImerClass'
+import TimerFunc from './components/5-Component-LifeCycle/TimerFunc'
+import CounterClass from './components/3-Component-State/CounterClass'
 
 const App = () => {
-
-
     return <>
         <p>Hello World!</p>
         <br />
-        <NameList />
+      <CounterClass />
+      <TimerFunc />
     </>
 }
 
