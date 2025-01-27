@@ -1,9 +1,7 @@
-
-
-
-import { ThemeProvider } from './components/2-Context-Api/ThemeContext';
-import ThemedComponent from './components/2-Context-Api/ThemedComponent';
-import ThemeToggle from './components/2-Context-Api/ThemeToggle';
+import React from 'react';
+import { ThemeProvider } from './ThemeContext';
+import ThemeToggle from './ThemeToggle';
+import ThemedComponent from './ThemedComponent';
 
 const App = () => {
     return (
